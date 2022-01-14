@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+:root {
+    --light-brown: #ede5d8;
+    --light-blue: #b6dfde;
+    --light-red: #e44f47;
+    --white: #fff;
+    --black: #000;
+    --background: #d9dcd6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    font: 1.75rem 'Sacramento', cursive;
+}
+
+.wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    height: 20rem;
+    width: 20rem;
+    font-size: 1.4rem;
+    box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.25);
+    text-align: center;
+    margin: auto;
+}
+
+.page {
+    width: 100%;
+    height: 20rem;
+    perspective: 90rem;
+}
+
+.page__1 {
+    background-color: var(--light-red);
+    color: var(--white);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: all 1s 0.3s;
+    transform-origin: 0 50%;
+    z-index: 2;
+}
+
+.page__1__text {
+    font-size: 2rem;
+}
+
+.page__1__shape {
+    font-size: 3rem;
+    position: absolute;
+    bottom: 0.4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.page__1__shape:before,
+.page__1__shape:after {
+    content: ' ';
+    background: var(--white);
+    height: 0.1rem;
+    margin-bottom: 0.4rem;
+    display: block;
+    flex-grow: 2;
+}
+
+.page__1__shape:before {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.page__1__shape:after {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.page__1:after {
+    content: '';
+    color: var(--white);
+    position: absolute;
+    padding-top: 1.5rem;
+    top: 0;
+    left: 0;
+    background-color: var(--light-brown);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transform: rotateY(180deg);
+    transition: all 0.3s 0.5s;
+}
+
+.open .page__1 {
+    transform: rotateY(-180deg);
+    box-shadow: 1.5rem 2rem 3rem rgba(0, 0, 0, 0.25);
+}
+
+.open .page__1::after {
+    opacity: 1;
+}
+
+.page__2 {
+    background-color: var(--light-blue);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.page__2__text {
+    font-size: 2rem;
+}
+
+.page__2__shape {
+    font-size: 3rem;
+    position: absolute;
+    bottom: 0.4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.page__2__shape:before,
+.page__2__shape:after {
+    content: ' ';
+    background: var(--black);
+    height: 0.1rem;
+    margin-bottom: 0.4rem;
+    display: block;
+    flex-grow: 2;
+}
+
+.page__2__shape:before {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.page__2__shape:after {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.button {
+    margin-top: 3rem;
+    box-shadow: 0rem 0.25rem 0.4rem rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.6rem 1.5rem;
+    z-index: 1;
+    cursor: pointer;
+}
